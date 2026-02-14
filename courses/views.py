@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Course, Question, Answer, TestAttempt, UserAnswer
 
+
 @login_required
 def start_test(request, course_id):
     course = get_object_or_404(Course, id=course_id)
@@ -26,18 +27,23 @@ def take_test(request, attempt_id):
 
         for question in questions:
             selected_answer_id = request.POST.get(f'question_{question.id}')
-            
-            if selected_answer_id:
+
+            if not selected_answer_id:
+                continue
+
+            try:
                 selected_answer = Answer.objects.get(id=selected_answer_id)
+            except Answer.DoesNotExist:
+                continue
 
-                user_answer = UserAnswer.objects.create(
-                    attempt=attempt,
-                    question=question,
-                    selected_answer=selected_answer
-                )
+            user_answer = UserAnswer.objects.create(
+                attempt=attempt,
+                question=question,
+                selected_answer=selected_answer
+            )
 
-                if user_answer.is_correct:
-                    score += 1
+            if user_answer.is_correct:
+                score += 1
 
         attempt.score = score
         attempt.completed_at = timezone.now()

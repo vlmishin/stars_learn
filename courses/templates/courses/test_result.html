@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Результат теста</title>
+</head>
+<body>
+
+<h1>Результат</h1>
+
+<p>Курс: {{ attempt.course.title }}</p>
+<p>Пользователь: {{ attempt.user.username }}</p>
+<p>Баллы: {{ attempt.score }}</p>
+
+{% if attempt.passed %}
+    <h2 style="color: green;">Тест пройден ✅</h2>
+{% else %}
+    <h2 style="color: red;">Тест не пройден ❌</h2>
+{% endif %}
+
+<a href="/courses/start/{{ attempt.course.id }}/">
+    Пройти снова
+</a>
+
+</body>
+</html>
