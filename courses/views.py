@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 
-from .models import Course, Question, Answer, TestAttempt, UserAnswer
+from .models import Course, Question, Answer, TestAttempt, UserAnswer, Lesson
 
 
 @login_required
@@ -61,7 +61,27 @@ def take_test(request, attempt_id):
 @login_required
 def test_result(request, attempt_id):
     attempt = get_object_or_404(TestAttempt, id=attempt_id)
+    user_answers = attempt.user_answers.select_related('question', 'selected_answer')
 
     return render(request, 'courses/test_result.html', {
-        'attempt': attempt
+        'attempt': attempt,
+        'user_answers': user_answers
+    })
+
+
+@login_required
+def attempt_list(request):
+    attempts = TestAttempt.objects.filter(user=request.user).order_by('-started_at')
+
+    return render(request, 'courses/attempt_list.html', {
+        'attempts': attempts
+    })
+
+
+@login_required
+def lesson_detail(request, lesson_id):
+    lesson = get_object_or_404(Lesson, id=lesson_id)
+
+    return render(request, 'courses/lesson_detail.html', {
+        'lesson': lesson
     })

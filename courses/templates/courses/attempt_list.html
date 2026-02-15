@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мои попытки</title>
+</head>
+<body>
+
+<h1>История прохождения тестов</h1>
+
+{% if attempts %}
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Курс</th>
+            <th>Дата начала</th>
+            <th>Баллы</th>
+            <th>Подробнее</th>
+        </tr>
+
+        {% for attempt in attempts %}
+        <tr>
+            <td>{{ attempt.course.title }}</td>
+            <td>{{ attempt.started_at }}</td>
+            <td>{{ attempt.score }}</td>
+            <td>
+                <a href="{% url 'test_result' attempt.id %}">
+                    Посмотреть
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>У вас пока нет попыток прохождения теста.</p>
+{% endif %}
+
+</body>
+</html>

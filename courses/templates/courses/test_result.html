@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Результат теста</title>
+    <title>Разбор теста</title>
 </head>
 <body>
 
-<h1>Результат</h1>
+<h1>Разбор теста</h1>
 
 <p>Курс: {{ attempt.course.title }}</p>
-<p>Пользователь: {{ attempt.user.username }}</p>
 <p>Баллы: {{ attempt.score }}</p>
 
-{% if attempt.passed %}
-    <h2 style="color: green;">Тест пройден ✅</h2>
-{% else %}
-    <h2 style="color: red;">Тест не пройден ❌</h2>
-{% endif %}
+<hr>
 
-<a href="/courses/start/{{ attempt.course.id }}/">
-    Пройти снова
-</a>
+{% for ua in user_answers %}
+    <div style="margin-bottom: 25px;">
+
+        <p><strong>Вопрос:</strong> {{ ua.question.text }}</p>
+        <p><strong>Ваш ответ:</strong> {{ ua.selected_answer.text }}</p>
+
+        {% if ua.is_correct %}
+            <p style="color: green;">Ответ правильный ✅</p>
+        {% else %}
+            <p style="color: red;">Ответ требует повторения ❌</p>
+
+            {% if ua.question.lesson %}
+                <p>
+                    🔗 Рекомендуем повторить материал:
+                    <a href="{% url 'lesson_detail' ua.question.lesson.id %}">
+                        {{ ua.question.lesson.title }}
+                    </a>
+                </p>
+            {% endif %}
+        {% endif %}
+
+    </div>
+{% endfor %}
+
+<hr>
+
+<a href="{% url 'attempt_list' %}">Вернуться к списку попыток</a>
 
 </body>
 </html>
