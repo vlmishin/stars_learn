@@ -1,0 +1,16 @@
+.first-block {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+/* Расстояние между параграфами */
+.first-block p {
+    margin: 0 0 15px 0;
+}
+
+.first-block p:last-child {
+    margin-bottom: 0;
+}
