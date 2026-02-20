@@ -1,16 +1,100 @@
 .first-block {
     display: flex;
-    flex-wrap: wrap;
     overflow: hidden;
     border-radius: 14px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    margin-bottom: 100px;
 }
 
-/* Расстояние между параграфами */
-.first-block p {
+/* Левая часть */
+.first-block-photo {
+    flex: 0 0 35%;
+}
+
+.first-block-photo img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Правая часть */
+.first-block-info {
+    flex: 0 0 65%;
+    background-color: #6DE6D5;
+    padding: 40px;
+    min-height: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.first-block-info p {
     margin: 0 0 15px 0;
 }
 
-.first-block p:last-child {
+.first-block-info p:last-child {
     margin-bottom: 0;
+}
+
+.trainee-card {
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    padding: 20px;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+}
+
+.trainee-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.trainee-card h5 {
+    margin: 0 0 10px 0;
+}
+
+.trainee-card p {
+    font-size: 0.9rem;
+    flex-grow: 1;
+}
+
+.trainee-card footer {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Стили для bullet-списка внутри модального окна */
+.trainee-day-list {
+    list-style: none;       /* убираем стандартные точки */
+    padding-left: 0;
+    margin-top: 30px;
+}
+
+.trainee-day-list li {
+    position: relative;
+    padding-left: 25px;     /* отступ для кружка */
+    margin-bottom: 10px;    /* расстояние между пунктами */
+    font-size: 1.05rem;     /* увеличенный шрифт */
+    line-height: 1.5;       /* чуть больше интерлиньяжа для удобства чтения */
+}
+
+/* Кружок кастомного цвета */
+.trainee-day-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;                /* вертикальное центрирование кружка относительно текста */
+    width: 10px;
+    height: 10px;
+    background-color: #6DE6D5; /* основной цвет сайта */
+    border-radius: 50%;
 }
