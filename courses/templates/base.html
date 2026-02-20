@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}STARS LEARN{% endblock %}</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+        background-color: #f5f7fa;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        color: #1f2d3d;
+        }
+
+        .navbar-custom {
+            background-color: transparent;
+        }
+
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 1000;
+            letter-spacing: 0.5px;
+            color: #563721 !important;
+        }
+
+        .navbar-custom .nav-link {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            color: #7E7B7B !important;
+        }
+
+        .navbar-custom .nav-link:hover {
+            opacity: 0.8;
+        }
+        .navbar-nav .dropdown:hover > .dropdown-menu {
+            display: block;
+            margin-top: 0; /* чтобы не было "подпрыгивания" */
+            transition: all 0.3s ease;
+        }
+
+        .card-portal {
+            border: none;
+            border-radius: 14px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<script>
+    // Bootstrap позволяет dropdown закрываться при клике по элементу.
+    // Этот скрипт предотвращает закрытие при клике на сам dropdown
+    document.querySelectorAll('.dropdown-menu').forEach(function(dropdown) {
+        dropdown.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+</script>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container">
+        <a class="navbar-brand" href="/">STARS LEARN</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+
+                <!-- Основное -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                       data-bs-toggle="dropdown">
+                        Основное
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Обслуживание гостей</a></li>
+                        <li><a class="dropdown-item" href="#">Горячий бар</a></li>
+                        <li><a class="dropdown-item" href="#">Холодный бар</a></li>
+                        <li><a class="dropdown-item" href="#">Касса</a></li>
+                        <li><a class="dropdown-item" href="#">Продукты питания</a></li>
+                        <li><a class="dropdown-item" href="#">Лобби</a></li>
+                        <li><a class="dropdown-item" href="#">Мир кофе</a></li>
+                    </ul>
+                </li>
+
+                <!-- Рецептурные карты -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                       data-bs-toggle="dropdown">
+                        Рецептурные карты
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Основной ассортимент</a></li>
+                        <li><a class="dropdown-item" href="#">Авторские напитки</a></li>
+                        <li><a class="dropdown-item" href="#">Холодный бар</a></li>
+                    </ul>
+                </li>
+
+                <!-- Сорта кофе -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Сорта кофе</a>
+                </li>
+
+                <!-- Тренажер -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                       data-bs-toggle="dropdown">
+                        Тренажер
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">
+                            Пройти тест
+                        </a></li>
+                        <li><a class="dropdown-item" href="{% url 'attempt_list' %}">
+                            История попыток
+                        </a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

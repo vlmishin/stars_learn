@@ -1,21 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ lesson.title }}</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}
+{{ lesson.title }}
+{% endblock %}
+
+{% block content %}
 
 <h1>{{ lesson.title }}</h1>
-
 <hr>
 
-<div>
+<div class="card p-4 shadow-sm">
     {{ lesson.content|linebreaks }}
 </div>
 
-<hr>
+<a href="javascript:history.back()" class="btn btn-secondary mt-3">
+    ⬅ Вернуться назад
+</a>
 
-<a href="javascript:history.back()">⬅ Вернуться назад</a>
-
-</body>
-</html>
+{% endblock %}
