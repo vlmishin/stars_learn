@@ -1,3 +1,21 @@
+/* Bootstrap */
+.modal-content {
+    padding: 20px !important; /* увеличиваем общий padding */
+    border-radius: 16px;
+}
+
+.modal-body {
+    padding: 20px 30px !important; /* сверху/снизу 30px, слева/справа 40px */
+}
+.modal-dialog.modal-custom-width {
+    max-width: 900px !important;  /* гарантированно шире */
+    width: 90% !important;        /* адаптивно */
+}
+
+.first-section {
+    margin-top: 100px; /* подбираем по высоте navbar */
+}
+
 .first-block {
     display: flex;
     overflow: hidden;
