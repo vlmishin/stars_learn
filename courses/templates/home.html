@@ -5,218 +5,263 @@
 
 {% block content %}
 
-<div class="container-fluid p-0 first-section">
-    <div class="first-block">
+    <div class="container-fluid p-0 first-section">
+        <div class="first-block">
 
-        <div class="first-block-photo">
-            <img src="{% static 'images/team_photo.jpg' %}" alt="Наша команда">
+            <div class="first-block-photo">
+                <img src="{% static 'images/team_photo.jpg' %}" alt="Наша команда">
+            </div>
+
+            <div class="first-block-info">
+                <p>
+                    <strong>STARS COFFEE</strong> – это тотально о кофе. Мы начинаем новый отсчет.
+                    Те же локации, где вы привыкли брать утренний кофе, любимую выпечку и
+                    встречаться с друзьями.
+                </p>
+
+                <p>
+                    <strong>STARS LEARN</strong> - это платформа, которая поможет тебе в освоении
+                    профессии бариста и поможет подготовиться к итоговой сертификации.
+                </p>
+            </div>
+
         </div>
+    </div>
 
-        <div class="first-block-info">
-            <p>
-                <strong>STARS COFFEE</strong> – это тотально о кофе. Мы начинаем новый отсчет. 
-                Те же локации, где вы привыкли брать утренний кофе, любимую выпечку и 
-                встречаться с друзьями.
-            </p>
+    <div class="container my-5 trainee-section">
+        <h2 class="text-center mb-4">Программа обучения</h2>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <div class="trainee-card" data-bs-toggle="modal" data-bs-target="#day1Modal">
+                <h5>День 1</h5>
+                <p>Работа на горячем и холодном баре</p>
+                <footer>Подробнее &gt;</footer>
+            </div>
+            <div class="trainee-card" data-bs-toggle="modal" data-bs-target="#day2Modal">
+                <h5>День 2</h5>
+                <p>Работа на кассе и продукты питания</p>
+                <footer>Подробнее &gt;</footer>
+            </div>
+            <div class="trainee-card" data-bs-toggle="modal" data-bs-target="#day3Modal">
+                <h5>День 3</h5>
+                <p>Процедуры по поддержанию чистоты кофейни</p>
+                <footer>Подробнее &gt;</footer>
+            </div>
+            <div class="trainee-card" data-bs-toggle="modal" data-bs-target="#day4Modal">
+                <h5>День 4</h5>
+                <p>Заваривание кофе и чая</p>
+                <footer>Подробнее &gt;</footer>
+            </div>
+            <div class="trainee-card" data-bs-toggle="modal" data-bs-target="#day5Modal">
+                <h5>День 5</h5>
+                <p>Практика и подведение итогов</p>
+                <footer>Подробнее &gt;</footer>
+            </div>
+            <div class="trainee-card" data-bs-toggle="modal" data-bs-target="#day6Modal">
+                <h5>День 6</h5>
+                <p>Сертификация «Бариста»</p>
+                <footer>Подробнее &gt;</footer>
+            </div>
+        </div>
+    </div>
 
-            <p>
-                <strong>STARS LEARN</strong> - это платформа, которая поможет тебе в освоении 
-                профессии бариста и поможет подготовиться к итоговой сертификации.
-            </p>
+    <!-- Модальные окна (Day1–Day6) -->
+    <div class="modal fade" id="day1Modal" tabindex="-1" aria-labelledby="day1ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>День 1:</h3>
+                    <h3>Работа на горячем и холодном баре</h3>
+                    <ul class="trainee-day-list">
+                        <li>Добро пожаловать в STARS COFFEE</li>
+                        <li>Знакомство с маркировкой, рецептурами бара и описанием напитков</li>
+                        <li>Ингредиенты и приготовление баз для бара</li>
+                        <li>Приготовление всех напитков бара</li>
+                        <li>Процедуры работы на баре</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="day2Modal" tabindex="-1" aria-labelledby="day2ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>День 2:</h3>
+                    <h3>Работа на кассе и продукты питания</h3>
+                    <ul class="trainee-day-list">
+                        <li>Ступени обслуживания Гостя</li>
+                        <li>Ассортимент еды и ее описание</li>
+                        <li>Сроки годности</li>
+                        <li>Разогрев и выдача продуктов питания</li>
+                        <li>Работа на кассе</li>
+                        <li>Процедуры работы на кассе и на продуктах питания</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="day3Modal" tabindex="-1" aria-labelledby="day3ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>День 3:</h3>
+                    <h3>Процедуры по поддержанию чистоты кофейни</h3>
+                    <ul class="trainee-day-list">
+                        <li>Участок кафе</li>
+                        <li>Работа на мойке</li>
+                        <li>Химические средства в кофейне</li>
+                        <li>Процедуры по поддержанию чистоты открытия и закрытия кофейни</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="day4Modal" tabindex="-1" aria-labelledby="day4ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>День 4:</h3>
+                    <h3>Заваривание кофе и чая</h3>
+                    <ul class="trainee-day-list">
+                        <li>Основные характеристики представленных сортов кофе</li>
+                        <li>Ассортимент свежезаваренных чаев и их описание</li>
+                        <li>Профессиональная дегустация кофе</li>
+                        <li>Альтернативные методы заваривания в кофейне</li>
+                        <li>Процедуры работы с оборудованием</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="day5Modal" tabindex="-1" aria-labelledby="day5ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>День 5:</h3>
+                    <h3>Практика и подведение итогов</h3>
+                    <ul class="trainee-day-list">
+                        <li>Встреча с наставником</li>
+                        <li>Повторение изученного материала</li>
+                        <li>Разбор вопросов сертификации</li>
+                        <li>Подготовка к презентации кофе</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="day6Modal" tabindex="-1" aria-labelledby="day6ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>День 6:</h3>
+                    <h3>Сертификация «Бариста»</h3>
+                    <ul class="trainee-day-list">
+                        <li>Теоретическая часть</li>
+                        <li>Практическая часть</li>
+                        <li>Обратная связь и итоги</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5 navigation-section">
+
+        <div class="navigation-cards">
+            <a href="#" class="nav-card">
+                <div class="nav-card-bg" style="background-image: url('{% static "images/main.jpg" %}');"></div>
+                <div class="nav-card-content">
+                    <h3>Основное</h3>
+                    <div class="description">
+                        Это пособие, которое поможет вам начать свой путь в кофейнях STARS. В нем содержится вся
+                        необходимая информация, которая понадобится вам на этапах стажировки, и для успешной сдачи
+                        сертификации.
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="nav-card">
+                <div class="nav-card-bg" style="background-image: url('{% static "images/recipes.jpg" %}');"></div>
+                <div class="nav-card-content">
+                    <h3>Рецептурные карты</h3>
+                    <div class="description">
+                        Ознакомьтесь с рецептурами основного, авторского и холодного ассортиментов наших напитков.
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="nav-card">
+                <div class="nav-card-bg" style="background-image: url('{% static "images/coffee.jpg" %}');"></div>
+                <div class="nav-card-content">
+                    <h3>Сорта кофе</h3>
+                    <div class="description">
+                        Справочное пособие для изучения характеристик и интересных фактов о кофе.
+                    </div>
+                </div>
+            </a>
         </div>
 
     </div>
-</div>
 
-<div class="container my-5 trainee-section">
-    <h2 class="text-center mb-4">Программа обучения</h2>
-    <div class="d-flex flex-wrap justify-content-center gap-3">
-        <div class="trainee-card" data-bs-toggle="modal" data-bs-target="#day1Modal">
-            <h5>День 1</h5>
-            <p>Работа на горячем и холодном баре</p>
-            <footer>Подробнее &gt;</footer>
+    <!-- Четвертый блок — Инструменты для работы -->
+    <section class="tools-section">
+        <div class="container">
+            <h2 class="text-center mb-4">Необходимые инструменты</h2>
+
+            <div class="tools-grid">
+
+                <!-- Карточка VK HR Tek -->
+                <a href="https://vkdoc.mail.ru/" target="_blank" class="tool-card">
+                    <div class="tool-card-inner">
+                        <div class="tool-front">
+                            <img src="{% static 'images/vkhr_logo.png' %}" alt="VK HR Tek">
+                            <p><strong>VK HR Tek</strong> — это система электронного документооборота. Все заявления и прочие документы оформляются там.</p>
+                        </div>
+                        <div class="tool-hover">
+                            <span>Перейти на VK HR Tek  ></span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Карточка HoReCa school -->
+                <a href="https://stars.ekvio.ru/welcome" target="_blank" class="tool-card">
+                    <div class="tool-card-inner">
+                        <div class="tool-front">
+                            <img src="{% static 'images/horeca_logo.png' %}" alt="Stars Learn">
+                            <p><strong>Horeca School (Эквио) </strong> — это наш учебный портал: здесь ты найдёшь пособия, рецептуры, еженедельные коммуникации и многое другое.</p>
+                        </div>
+                        <div class="tool-hover">
+                            <span>Перейти на HoReCa School  ></span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
         </div>
-        <div class="trainee-card" data-bs-toggle="modal" data-bs-target="#day2Modal">
-            <h5>День 2</h5>
-            <p>Работа на кассе и продукты питания</p>
-            <footer>Подробнее &gt;</footer>
-        </div>
-        <div class="trainee-card" data-bs-toggle="modal" data-bs-target="#day3Modal">
-            <h5>День 3</h5>
-            <p>Процедуры по поддержанию чистоты кофейни</p>
-            <footer>Подробнее &gt;</footer>
-        </div>
-        <div class="trainee-card" data-bs-toggle="modal" data-bs-target="#day4Modal">
-            <h5>День 4</h5>
-            <p>Заваривание кофе и чая</p>
-            <footer>Подробнее &gt;</footer>
-        </div>
-        <div class="trainee-card" data-bs-toggle="modal" data-bs-target="#day5Modal">
-            <h5>День 5</h5>
-            <p>Практика и подведение итогов</p>
-            <footer>Подробнее &gt;</footer>
-        </div>
-        <div class="trainee-card" data-bs-toggle="modal" data-bs-target="#day6Modal">
-            <h5>День 6</h5>
-            <p>Сертификация «Бариста»</p>
-            <footer>Подробнее &gt;</footer>
-        </div>
-    </div>
-</div>
-
-<!-- Модальные окна (Day1–Day6) -->
-<div class="modal fade" id="day1Modal" tabindex="-1" aria-labelledby="day1ModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="modal-body">
-            <h3>День 1:</h3>
-            <h3>Работа на горячем и холодном баре</h3>
-            <ul class="trainee-day-list">
-              <li>Добро пожаловать в STARS COFFEE</li>
-              <li>Знакомство с маркировкой, рецептурами бара и описанием напитков</li>
-              <li>Ингредиенты и приготовление баз для бара</li>
-              <li>Приготовление всех напитков бара</li>
-              <li>Процедуры работы на баре</li>
-            </ul>
-      </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="day2Modal" tabindex="-1" aria-labelledby="day2ModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="modal-body">
-            <h3>День 2:</h3>
-            <h3>Работа на кассе и продукты питания</h3>
-            <ul class="trainee-day-list">
-              <li>Ступени обслуживания Гостя</li>
-              <li>Ассортимент еды и ее описание</li>
-              <li>Сроки годности</li>
-              <li>Разогрев и выдача продуктов питания</li>
-              <li>Работа на кассе</li>
-              <li>Процедуры работы на кассе и на продуктах питания</li>
-            </ul>
-      </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="day3Modal" tabindex="-1" aria-labelledby="day3ModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="modal-body">
-            <h3>День 3:</h3>
-            <h3>Процедуры по поддержанию чистоты кофейни</h3>
-            <ul class="trainee-day-list">
-              <li>Участок кафе</li>
-              <li>Работа на мойке</li>
-              <li>Химические средства в кофейне</li>
-              <li>Процедуры по поддержанию чистоты открытия и закрытия кофейни</li>
-            </ul>
-      </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="day4Modal" tabindex="-1" aria-labelledby="day4ModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="modal-body">
-            <h3>День 4:</h3>
-            <h3>Заваривание кофе и чая</h3>
-            <ul class="trainee-day-list">
-              <li>Основные характеристики представленных сортов кофе</li>
-              <li>Ассортимент свежезаваренных чаев и их описание</li>
-              <li>Профессиональная дегустация кофе</li>
-              <li>Альтернативные методы заваривания в кофейне</li>
-              <li>Процедуры работы с оборудованием</li>
-            </ul>
-      </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="day5Modal" tabindex="-1" aria-labelledby="day5ModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="modal-body">
-            <h3>День 5:</h3>
-            <h3>Практика и подведение итогов</h3>
-            <ul class="trainee-day-list">
-              <li>Встреча с наставником</li>
-              <li>Повторение изученного материала</li>
-              <li>Разбор вопросов сертификации</li>
-              <li>Подготовка к презентации кофе</li>
-            </ul>
-      </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="day6Modal" tabindex="-1" aria-labelledby="day6ModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="modal-body">
-            <h3>День 6:</h3>
-            <h3>Сертификация «Бариста»</h3>
-            <ul class="trainee-day-list">
-              <li>Теоретическая часть</li>
-              <li>Практическая часть</li>
-              <li>Обратная связь и итоги</li>
-            </ul>
-      </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container my-5 navigation-section">
-
-  <div class="navigation-cards">
-    <a href="#" class="nav-card">
-      <div class="nav-card-bg" style="background-image: url('{% static "images/main.jpg" %}');"></div>
-      <div class="nav-card-content">
-        <h3>Основное</h3>
-        <div class="description">
-          Это пособие, которое поможет вам начать свой путь в кофейнях STARS. В нем содержится вся необходимая информация, которая понадобится вам на этапах стажировки, и для  успешной сдачи сертификации.
-        </div>
-      </div>
-    </a>
-
-    <a href="#" class="nav-card">
-      <div class="nav-card-bg" style="background-image: url('{% static "images/recipes.jpg" %}');"></div>
-      <div class="nav-card-content">
-        <h3>Рецептурные карты</h3>
-        <div class="description">
-          Ознакомьтесь с рецептурами основного, авторского и холодного ассортиментов наших напитков.
-        </div>
-      </div>
-    </a>
-
-    <a href="#" class="nav-card">
-      <div class="nav-card-bg" style="background-image: url('{% static "images/coffee.jpg" %}');"></div>
-      <div class="nav-card-content">
-        <h3>Сорта кофе</h3>
-        <div class="description">
-          Справочное пособие для изучения характеристик и интересных фактов о кофе.
-        </div>
-      </div>
-    </a>
-  </div>
-
-</div>
+    </section>
 
 
 {% endblock %}
