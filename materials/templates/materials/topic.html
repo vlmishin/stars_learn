@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="materials-wrapper">
+        <div class="container mt-4">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-md-3">
+                    <div class="sidebar">
+                        {% for sidebar_section in sidebar_sections %}
+                            <h5>{{ sidebar_section.title }}</h5>
+                            {% for topic_item in sidebar_section.topics.all %}
+                                <h6>{{ topic_item.title }}</h6>
+                                <ul>
+                                    {% for lesson_item in topic_item.lessons.all %}
+                                        <li>
+                                            <a href="#lesson-{{ lesson_item.id }}"
+                                               class="sidebar-link">
+                                                {{ lesson_item.title }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Основной контент -->
+                <div class="col-md-9">
+                    <div class="content-wrapper">
+                        {% for lesson in lessons %}
+                            <div id="lesson-{{ lesson.id }}" class="lesson-block mb-5">
+                                <h1>{{ lesson.title }}</h1>
+                                <div class="lesson-content mt-2">
+                                    {{ lesson.content|linebreaks }}
+                                </div>
+                                <hr>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

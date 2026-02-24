@@ -11,6 +11,11 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
 
+    {% block head %}
+        {{ block.super }}
+        <link rel="stylesheet" href="{% static 'css/materials.css' %}">
+    {% endblock %}
+
     <style>
         html, body {
             margin: 0;
@@ -20,17 +25,18 @@
         body {
             background-color: #f5f7fa;
             font-family: 'Roboto', sans-serif;
+            font-size: 17px;
             font-weight: 400;
             color: #1f2d3d;
         }
 
         .navbar {
-            position: fixed; /* фиксируем сверху */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            transition: top 0.3s ease; /* плавное движение */
+            transition: top 0.3s ease;
         }
 
         /* Увеличиваем расстояние между ссылками */
@@ -50,7 +56,7 @@
         }
 
         .navbar-custom {
-            background-color: transparent;
+            background-color: #f5f7fa;
         }
 
         .navbar-brand {
@@ -76,11 +82,6 @@
             transition: all 0.3s ease;
         }
 
-        .card-portal {
-            border: none;
-            border-radius: 14px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-        }
     </style>
 </head>
 <body>
@@ -96,42 +97,24 @@
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
+                {% for section in sections %}
 
-                <!-- Основное -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button"
-                       data-bs-toggle="dropdown">
-                        Основное
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Обслуживание гостей</a></li>
-                        <li><a class="dropdown-item" href="#">Горячий бар</a></li>
-                        <li><a class="dropdown-item" href="#">Холодный бар</a></li>
-                        <li><a class="dropdown-item" href="#">Касса</a></li>
-                        <li><a class="dropdown-item" href="#">Продукты питания</a></li>
-                        <li><a class="dropdown-item" href="#">Лобби</a></li>
-                        <li><a class="dropdown-item" href="#">Мир кофе</a></li>
-                    </ul>
-                </li>
+                    <!-- Основное -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                           data-bs-toggle="dropdown">
+                            {{ section.title }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            {% for topic in section.topics.all %}
+                                <li><a class="dropdown-item"
+                                       href="{% url 'topic_detail' section.slug topic.slug %}">{{ topic.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
 
-                <!-- Рецептурные карты -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button"
-                       data-bs-toggle="dropdown">
-                        Рецептурные карты
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Основной ассортимент</a></li>
-                        <li><a class="dropdown-item" href="#">Авторские напитки</a></li>
-                        <li><a class="dropdown-item" href="#">Холодный бар</a></li>
-                    </ul>
-                </li>
-
-                <!-- Сорта кофе -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Сорта кофе</a>
-                </li>
-
+                {% endfor %}
                 <!-- Тренажер -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button"
@@ -147,11 +130,11 @@
                         </a></li>
                     </ul>
                 </li>
-
             </ul>
         </div>
     </div>
 </nav>
+<div class="navbar-spacer"></div>
 
 <div class="container mt-5">
     {% block content %}

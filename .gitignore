@@ -18,5 +18,5 @@ venv/
 ENV/
 env/
 
-# VS Code
-.vscode/
+# PyCharm
+.idea
